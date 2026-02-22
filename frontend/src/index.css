@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-dark-bg text-dark-text antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-dark-card/80 backdrop-blur-md border border-dark-border/50 rounded-2xl;
+  }
+
+  .chat-bubble-user {
+    @apply bg-primary-600/90 backdrop-blur-sm text-white rounded-2xl rounded-tr-none px-4 py-3 shadow-lg;
+  }
+
+  .chat-bubble-ai {
+    @apply glass-card rounded-2xl rounded-tl-none px-4 py-3 shadow-lg;
+  }
+
+  .input-glass {
+    @apply bg-dark-card/50 backdrop-blur-md border border-dark-border/50 rounded-xl focus:border-primary-500/50 focus:ring-1 focus:ring-primary-500/50 placeholder:text-dark-muted/50 text-dark-text;
+  }
+
+  .code-block {
+    @apply bg-dark-bg/50 rounded-lg p-4 font-mono text-sm overflow-x-auto border border-dark-border/30;
+  }
+}
+
+@layer base {
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-muted/30;
+  }
+
+  /* Smooth transitions */
+  * {
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+@layer components {
+
+  /* Markdown content styling */
+  .prose {
+    @apply text-dark-text;
+  }
+
+  .prose pre {
+    @apply bg-dark-bg/50 border border-dark-border/50 rounded-lg p-4;
+  }
+
+  .prose code {
+    @apply text-primary-400 bg-primary-900/20 px-1 py-0.5 rounded;
+  }
+
+  .prose p {
+    @apply leading-relaxed;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply my-2 pl-5;
+  }
+
+  .prose li {
+    @apply my-1;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply text-primary-400 font-semibold mt-4 mb-2;
+  }
+
+  .prose h1 {
+    @apply text-2xl;
+  }
+
+  .prose h2 {
+    @apply text-xl;
+  }
+
+  .prose h3 {
+    @apply text-lg;
+  }
+
+  .prose h4 {
+    @apply text-base;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-primary-500/50 pl-4 italic text-dark-muted;
+  }
+
+  .prose a {
+    @apply text-primary-400 hover:text-primary-300 underline;
+  }
+}
